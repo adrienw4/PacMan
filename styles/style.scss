@@ -1,0 +1,148 @@
+/* Style the game container */
+body {
+    margin: 0;
+    display: grid;
+    height: 100vh;
+    place-items: center;
+    background-color: burlywood;
+    .game-container {
+        background-color: #000;
+        height: 420px;
+        width: 420px;
+        border: 4px solid red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* Define the CSS Grid */
+        .grid {
+            display: grid;
+            grid: repeat(12, 1fr) / repeat(12, 1fr);
+            width: 100%;
+            height: 100%;
+            /* Style the dots (you can add more styles here) */
+            .cell {
+                border: 1px solid #000;
+                background-color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            /* Style Pac-Man */
+            .pacman {
+                .pacman-top {
+                    background-color:yellow;
+                    width: 24px;
+                    height: 12px;
+                    border-radius: 100px 100px 0 0;
+                    animation: spin1 0.5s infinite linear;
+                }
+                .pacman-bottom{
+                    background-color:yellow;
+                    width: 24px;
+                    height: 12px;
+                    border-radius: 0 0 100px 100px;
+                    animation: spin2 0.5s infinite linear;
+                }
+                // .feed {
+                //     margin-top: -185px;
+                //     margin-left:15px;
+                //     width: 45px;
+                //     height: 45px;
+                //     border-radius: 30%;
+                //     -moz-animation: eat 1s linear 0s infinite;
+                //     -webkit-animation: eat 1s linear 0s infinite;
+                //     animation: eat 1s linear 0s infinite;
+                // } 
+            }
+            .ghost {
+                background-color: violet;
+                border: 2px solid red;
+            }
+            .walls {
+                background: violet;
+                box-shadow: 0 0px 25px rgba(255,25,255,.6), 0 0 20px rgba(255,255,255,.8);
+                &:nth-child(2){
+                    // Vertical
+                    grid-column-start: 1;
+                    grid-row-start: 5;
+                    grid-row-end: 8;
+                }
+                &:nth-child(3){
+                    // Horizontal
+                    grid-row-start: 1;
+                    grid-column-start: 4;
+                    grid-column-end: 7;
+                }
+                &:nth-child(4){
+                    // Vertical
+                    grid-column-start: 11;
+                    grid-row-start: 2;
+                    grid-row-end: 5;
+                }
+                &:nth-child(5){
+                    // Horizontal
+                    grid-row-start: 3;
+                    grid-column-start: 1;
+                    grid-column-end: 4;
+                    
+                }
+                &:nth-child(6){
+                    // Vertical
+                    grid-column-start: 7;
+                    grid-row-start: 4;
+                    grid-row-end: 7;
+                }
+                &:nth-child(7){
+                    // Horizontal
+                    grid-row-start: 7;
+                    grid-column-start: 9;
+                    grid-column-end: 12;
+                }
+                &:nth-child(8){
+                    // Vertical
+                    grid-column-start: 4;
+                    grid-row-start: 10;
+                    grid-row-end: 13;
+                }
+                &:nth-child(9){
+                    // Horizontal
+                    grid-row-start: 9;
+                    grid-column-start: 6;
+                    grid-column-end: 9;
+                }
+            }
+        }    
+    }
+}
+              
+
+/* Animation*/
+
+@keyframes spin1 {
+	0%  {transform: rotate(0deg);}
+	50%{transform: rotate(-35deg);}
+  
+}
+@keyframes spin2 {
+	0%  {transform: rotate(0deg);}
+  50%{transform: rotate(35deg);}	
+}
+
+
+
+              
+              
+             
+              
+                
+               
+            
+
+
+
+
+
+
+
+
