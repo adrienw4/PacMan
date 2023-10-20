@@ -15,8 +15,8 @@ body {
 body .game-container {
   padding: 2px;
   background-color: #000;
-  height: 480px;
-  width: 480px;
+  height: 640px;
+  width: 640px;
   border: 4px solid violet;
   display: flex;
   justify-content: center;
@@ -26,7 +26,7 @@ body .game-container {
 }
 body .game-container .grid {
   display: grid;
-  grid: repeat(64, 1fr)/repeat(64, 1fr);
+  grid: repeat(32, 1fr)/repeat(32, 1fr);
   width: 100%;
   height: 100%;
   position: relative;
@@ -51,15 +51,15 @@ body .game-container .grid .pacman {
 }
 body .game-container .grid .pacman .pacman-top {
   background-color: yellow;
-  width: 22px;
-  height: 11px;
+  width: 30px;
+  height: 15px;
   border-radius: 100px 100px 0 0;
   animation: spin1 0.5s infinite linear;
 }
 body .game-container .grid .pacman .pacman-bottom {
   background-color: yellow;
-  width: 22px;
-  height: 11px;
+  width: 30px;
+  height: 15px;
   border-radius: 0 0 100px 100px;
   animation: spin2 0.5s infinite linear;
 }
@@ -68,171 +68,106 @@ body .game-container .grid .ghost {
   border: 2px solid red;
 }
 body .game-container .grid .walls {
-  background: violet;
-  box-shadow: 0 0px 25px rgba(255, 25, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.8);
-}
-body .game-container .grid .walls:nth-child(1) {
-  background-color: red;
+  box-shadow: 0 0px 25px rgb(255, 0, 0), 0 0 20px rgba(255, 255, 255, 0.8);
+  border: 3px solid rgb(255, 0, 0);
+  border-radius: 5px;
 }
 body .game-container .grid .walls:nth-child(2) {
-  background-color: green;
+  grid-column: 1/7;
+  grid-row: 15;
 }
 body .game-container .grid .walls:nth-child(3) {
-  background-color: blue;
+  grid-column: 1/7;
+  grid-row-start: 11;
 }
 body .game-container .grid .walls:nth-child(4) {
-  background-color: orange;
+  grid-column: 27/33;
+  grid-row-start: 11;
 }
 body .game-container .grid .walls:nth-child(5) {
-  background-color: purple;
+  grid-column: 27/33;
+  grid-row: 15;
 }
 body .game-container .grid .walls:nth-child(6) {
-  background-color: yellow;
+  grid-column-start: 10;
+  grid-row: 6/13;
 }
 body .game-container .grid .walls:nth-child(7) {
-  background-color: teal;
+  grid-column: 10;
+  grid-row: 16/21;
 }
 body .game-container .grid .walls:nth-child(8) {
-  background-color: pink;
+  grid-column: 4/7;
+  grid-row: 7;
 }
 body .game-container .grid .walls:nth-child(9) {
-  background-color: brown;
+  grid-column-start: 7;
+  grid-column-end: 4;
+  grid-row: 4/7;
 }
 body .game-container .grid .walls:nth-child(10) {
-  background-color: gray;
+  grid-column: 10/14;
+  grid-row: 1/3;
 }
 body .game-container .grid .walls:nth-child(11) {
-  background-color: navy;
+  grid-column: 17/19;
+  grid-row: 1/5;
 }
 body .game-container .grid .walls:nth-child(12) {
-  background-color: olive;
+  grid-column: 11/15;
+  grid-row: 8;
 }
 body .game-container .grid .walls:nth-child(13) {
-  background-color: lime;
+  grid-column: 23;
+  grid-row: 6/13;
 }
 body .game-container .grid .walls:nth-child(14) {
-  background-color: maroon;
+  grid-column: 19/23;
+  grid-row: 8;
 }
 body .game-container .grid .walls:nth-child(15) {
-  background-color: fuchsia;
+  grid-column: 23;
+  grid-row: 16/21;
 }
 body .game-container .grid .walls:nth-child(16) {
-  background-color: aqua;
+  grid-column: 14/16;
+  grid-row: 13;
 }
 body .game-container .grid .walls:nth-child(17) {
-  background-color: silver;
+  grid-column: 18/20;
+  grid-row: 13;
 }
 body .game-container .grid .walls:nth-child(18) {
-  background-color: black;
+  grid-column: 14;
+  grid-row: 14/17;
 }
 body .game-container .grid .walls:nth-child(19) {
-  background-color: white;
+  grid-column: 19;
+  grid-row: 14/17;
 }
 body .game-container .grid .walls:nth-child(20) {
-  background-color: aliceblue;
+  grid-column: 14/16;
+  grid-row: 17;
 }
 body .game-container .grid .walls:nth-child(21) {
-  background-color: lavender;
+  grid-column: 18/20;
+  grid-row: 17;
 }
-body .game-container .grid .walls:nth-child(2) {
-  grid-column: 5;
-  grid-row: 5;
-  grid-column-end: 27;
+body .game-container .grid .walls:nth-child(22) {
+  grid-column: 27/30;
+  grid-row: 3/6;
 }
-body .game-container .grid .walls:nth-child(3) {
-  grid-column: 26;
-  grid-row: 6;
-  grid-row-end: 27;
+body .game-container .grid .walls:nth-child(23) {
+  grid-column: 14/20;
+  grid-row: 21;
 }
-body .game-container .grid .walls:nth-child(4) {
-  grid-column: 32;
-  grid-row: 5;
-  grid-row-end: 61;
+body .game-container .grid .walls:nth-child(24) {
+  grid-column: 16/18;
+  grid-row: 22/25;
 }
-body .game-container .grid .walls:nth-child(5) {
-  grid-column: 5;
-  grid-row: 32;
-  grid-column-end: 61;
-}
-body .game-container .grid .walls:nth-child(6) {
-  grid-column: 38;
-  grid-row: 5;
-  grid-column-end: 61;
-}
-body .game-container .grid .walls:nth-child(7) {
-  grid-column: 38;
-  grid-row: 6;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(8) {
-  grid-column: 22;
-  grid-row: 10;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(9) {
-  grid-column: 42;
-  grid-row: 10;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(10) {
-  grid-column: 15;
-  grid-row: 10;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(11) {
-  grid-column: 41;
-  grid-row: 10;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(12) {
-  grid-column: 41;
-  grid-row: 10;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(13) {
-  grid-column: 41;
-  grid-row: 10;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(14) {
-  grid-column: 41;
-  grid-row: 10;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(15) {
-  grid-column: 41;
-  grid-row: 10;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(16) {
-  grid-column: 41;
-  grid-row: 10;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(17) {
-  grid-column: 41;
-  grid-row: 10;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(18) {
-  grid-column: 41;
-  grid-row: 10;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(19) {
-  grid-column: 41;
-  grid-row: 10;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(20) {
-  grid-column: 41;
-  grid-row: 10;
-  grid-row-end: 27;
-}
-body .game-container .grid .walls:nth-child(21) {
-  grid-column: 41;
-  grid-row: 10;
-  grid-row-end: 27;
+body .game-container .grid .walls:nth-child(25) {
+  grid-column: 16/18;
+  grid-row: 22/25;
 }
 
 /* Style le bouton Start centré */
@@ -244,6 +179,11 @@ body .game-container .grid .walls:nth-child(21) {
   border-radius: 5px;
   padding: 5px;
   margin: 0;
+}
+
+h3 {
+  font-family: "Common Pixel", sans-serif;
+  font-size: 2rem;
 }
 
 /* Animation*/
@@ -262,4 +202,6 @@ body .game-container .grid .walls:nth-child(21) {
   50% {
     transform: rotate(35deg);
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */

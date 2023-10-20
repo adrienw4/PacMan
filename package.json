@@ -4,7 +4,8 @@
   "description": "Little retro game test and learning",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "sass --watch ./styles/style.scss ./styles/style.css"
   },
   "repository": {
     "type": "git",
