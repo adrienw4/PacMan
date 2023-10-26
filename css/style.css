@@ -166,8 +166,8 @@ body .game-container .grid .walls:nth-child(24) {
   grid-row: 22/25;
 }
 body .game-container .grid .walls:nth-child(25) {
-  grid-column: 16/18;
-  grid-row: 22/25;
+  grid-column: 8/12;
+  grid-row: 25;
 }
 
 /* Style le bouton Start centré */

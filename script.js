@@ -1,70 +1,47 @@
-// const pacman = document.querySelector(".pacman");
-// const grid = document.querySelector(".grid");
-// const startButton = document.querySelector("#start-button");
-// const cellSize = 100 / 64; // Taille d'une cellule en pourcentage
-// const pacmanSize = 3 * cellSize; // Taille de Pac-Man en pourcentage
-// const animationDuration = 0.07; // Durée de l'animation en secondes
-// let direction = "right";
-// let isMoving = false;
 
-// startButton.addEventListener("click", () => {
-//   pacman.style.gridColumn = "1";
-//   pacman.style.gridRow = "1";
-//   startButton.disabled = true;
-//   isMoving = true;
-//   movePacman();
-// });
-
-// document.addEventListener("keydown", (event) => {
-//   if (!isMoving) return;
-//   if (event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
-//     direction = "up";
-//   } else if (
-//     event.key === "ArrowDown" ||
-//     event.key === "s" ||
-//     event.key === "S"
-//   ) {
-//     direction = "down";
-//   } else if (
-//     event.key === "ArrowLeft" ||
-//     event.key === "a" ||
-//     event.key === "A"
-//   ) {
-//     direction = "left";
-//   } else if (
-//     event.key === "ArrowRight" ||
-//     event.key === "d" ||
-//     event.key === "D"
-//   ) {
-//     direction = "right";
-//   }
-// });
-
-// function movePacman() {
-//   if (!isMoving) return;
-
-//   let currentCol = parseInt(pacman.style.gridColumn);
-//   let currentRow = parseInt(pacman.style.gridRow);
-
-//   switch (direction) {
-//     case "up":
-//       currentRow = Math.max(currentRow - 1, 1);
-//       break;
-//     case "down":
-//       currentRow = Math.min(currentRow + 1, 64);
-//       break;
-//     case "left":
-//       currentCol = Math.max(currentCol - 1, 1);
-//       break;
-//     case "right":
-//       currentCol = Math.min(currentCol + 1, 64);
-//       break;
-//   }
-
-//   pacman.style.gridColumn = currentCol;
-//   pacman.style.gridRow = currentRow;
-
-//   // Gérer les collisions avec les murs et la bordure extérieure (vous pouvez ajouter votre propre logique ici)
-
-//   setTimeout(movePacman, animationDuration * 1000);
-// }
+document.addEventListener("DOMContentLoaded", function () {
+    const pacman = document.querySelector(".pacman");
+    const grid = document.querySelector(".grid");
+    const scoreDisplay = document.getElementById("score");
+    const cells = document.querySelectorAll(".cell")
+    let pacmanPosition = 213; // Position initiale de Pac-Man
+    let score = 0;
+  
+    // Ajouter Pac-Man à sa position initiale
+    cells[pacmanPosition].classList.add("pacman");
+  
+    // Écouter les touches du clavier pour déplacer Pac-Man
+    document.addEventListener("keydown", function (event) {
+      // Supprimer Pac-Man de sa position actuelle
+      cells[pacmanPosition].classList.remove("pacman")
+  
+      // Mettre à jour la position de Pac-Man
+      switch (event.key) {
+        case "ArrowUp":
+          if (pacmanPosition >= 30) pacmanPosition -= 30;
+          break;
+        case "ArrowDown":
+          if (pacmanPosition < 570) pacmanPosition += 30;
+          break;
+        case "ArrowLeft":
+          if (pacmanPosition % 30 !== 0) pacmanPosition -= 1;
+          break;
+        case "ArrowRight":
+          if (pacmanPosition % 30 !== 29) pacmanPosition += 1;
+          break;
+      }
+  
+      // Ajouter Pac-Man à sa nouvelle position
+      cells[pacmanPosition].classList.add("pacman");
+  
+      // Vérifier si Pac-Man mange un point
+      if (cells[pacmanPosition].classList.contains("point")) {
+        cells[pacmanPosition].classList.remove("point");
+        score += 10;
+        scoreDisplay.textContent = score;
+      }
+    });
+  });
+  
+  
+  
